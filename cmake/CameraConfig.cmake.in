@@ -1,0 +1,11 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+
+# Camera 的公开接口依赖 OpenCV。
+find_dependency(OpenCV 4 COMPONENTS core imgproc)
+
+# 加载安装时导出的 Camera::Camera 目标。
+include("${CMAKE_CURRENT_LIST_DIR}/CameraTargets.cmake")
+
+check_required_components(Camera)
